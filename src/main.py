@@ -96,7 +96,7 @@ def dashboard(port):
     """Launch the web dashboard"""
     click.echo(f"Starting ECO-STORM dashboard on port {port}...")
     click.echo("Dashboard functionality coming soon!")
-    click.echo("Navigate to http://localhost:{port} once available")
+    click.echo(f"Navigate to http://localhost:{port} once available")
 
 
 @cli.command()

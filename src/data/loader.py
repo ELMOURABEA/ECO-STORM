@@ -92,7 +92,7 @@ class DataLoader:
         
         # Handle missing values
         if self.config.get('fill_na', False):
-            df = df.fillna(method='ffill').fillna(method='bfill')
+            df = df.ffill().bfill()
         
         # Convert date columns if present
         date_columns = self.config.get('date_columns', [])
