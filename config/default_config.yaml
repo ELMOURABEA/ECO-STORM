@@ -1,0 +1,119 @@
+# ECO-STORM Default Configuration
+
+# Application Settings
+app:
+  name: "ECO-STORM"
+  version: "0.1.0"
+  debug: false
+
+# Data Settings
+data:
+  # Data sources
+  sources:
+    - type: "csv"
+      path: "data/economic_indicators.csv"
+    - type: "api"
+      endpoint: "https://api.example.com/economic-data"
+  
+  # Data preprocessing
+  preprocessing:
+    fill_missing: true
+    remove_outliers: true
+    normalize: true
+  
+  # Date columns to parse
+  date_columns:
+    - "date"
+    - "timestamp"
+
+# Analysis Settings
+analysis:
+  # Risk score calculation
+  risk_score:
+    method: "weighted_average"
+    weights:
+      gdp_growth: 0.25
+      unemployment: 0.20
+      inflation: 0.18
+      interest_rate: 0.15
+      market_volatility: 0.12
+      trade_balance: 0.10
+  
+  # Volatility calculation
+  volatility:
+    window_size: 30
+    method: "rolling_std"
+  
+  # Correlation analysis
+  correlation:
+    method: "pearson"
+    min_periods: 10
+
+# Prediction Settings
+prediction:
+  # Model configuration
+  model:
+    type: "ensemble"
+    algorithms:
+      - "random_forest"
+      - "gradient_boosting"
+      - "lstm"
+  
+  # Training parameters
+  training:
+    test_size: 0.2
+    validation_size: 0.1
+    random_state: 42
+  
+  # Prediction horizon
+  horizon:
+    default: 12
+    min: 1
+    max: 36
+
+# Alert Settings
+alerts:
+  enabled: true
+  thresholds:
+    risk_score: 70
+    crisis_probability: 0.60
+    volatility_index: 0.30
+  
+  notifications:
+    email: false
+    slack: false
+    console: true
+
+# Dashboard Settings
+dashboard:
+  host: "localhost"
+  port: 5000
+  refresh_interval: 300  # seconds
+  
+  # Chart settings
+  charts:
+    default_theme: "light"
+    colors:
+      risk_low: "#28a745"
+      risk_medium: "#ffc107"
+      risk_high: "#dc3545"
+
+# Logging Settings
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/eco_storm.log"
+  console: true
+
+# Database Settings (if applicable)
+database:
+  enabled: false
+  type: "sqlite"
+  path: "data/eco_storm.db"
+
+# API Settings (if applicable)
+api:
+  enabled: false
+  host: "0.0.0.0"
+  port: 8000
+  cors_enabled: true
