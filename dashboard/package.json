@@ -28,7 +28,7 @@
     "nodemon": "^2.0.20",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.0",
-    "jest": "^29.4.0"
+    "jest": "^30.5.0"
   },
   "engines": {
     "node": ">=14.0.0",
